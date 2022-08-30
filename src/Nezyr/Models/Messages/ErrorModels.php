@@ -2,23 +2,22 @@
 
 namespace Nezyr\Models\Messages;
 
-class ErrorModels{
-    public function noPerms(PlayerManager|ConsoleCommandSender $player, string $permissions = null){
-        $messages = $permissions === null ? "§o§f[§6§l!!!§r§o]§r§f Vous n'avez pas les permissions requise !" : "§o§f[§6§l!!!§r§o]§r§f Vous devez possedez la permission suivante: §7$permissions";
+use Nezyr\Models\PlayerManager;
+use pocketmine\console\ConsoleCommandSender;
 
-        return $player->sendMessage($messages);
+class ErrorModels{
+    public function noPerms(PlayerManager|ConsoleCommandSender $player){
+        $player->sendMessage("§eErreur > §cVous n'avez pas la permission de faire ceci");
     }
 
-    public function noArgs(PlayerManager|ConsoleCommandSender $player, string $args){
-        $messages = "§o§f[§6§l!!!§r§o]§r§f Usage: §7$args";
-
-        return $player->sendMessage($messages);
+    public function noArgs(PlayerManager|ConsoleCommandSender $player, string $usage){
+        $messages = "§eUsage > §c$usage";
+        $player->sendMessage($messages);
     }
 
     public function custom(PlayerManager|ConsoleCommandSender $player, string $value){
-        $messages = "§o§f[§6§l!!!§r§o]§r§f $value";
-
-        return $player->sendMessage($messages);
+        $messages = "§eUsage > §c$value";
+        $player->sendMessage($messages);
     }
 
     public function smallCooldown(PlayerManager $player, int $time, int $type = 0, string $message = "Veillez patientez §9{time}"){

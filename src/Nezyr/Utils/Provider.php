@@ -2,8 +2,8 @@
 
 namespace Nezyr\Utils;
 
-use http\QueryString;
 use Nezyr\Main;
+use Nezyr\Tasks\QueryAsync;
 use pocketmine\Server;
 
 class Provider{
@@ -11,7 +11,7 @@ class Provider{
     private static $mysqli;
 
     public static function database(): \SQLite3{
-        return new \SQLite3(Main::getInstance()->getDataFolder() . "Solaria.db");
+        return new \SQLite3(Main::$main->getDataFolder() . "Solaria.db");
     }
 
     public static function query(string $text){
