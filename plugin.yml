@@ -1,0 +1,5 @@
+name: Nezyr
+main: Nezyr\Main
+version: 1.0.0-alpha
+api: 4.0.0
+author: Matthieu
