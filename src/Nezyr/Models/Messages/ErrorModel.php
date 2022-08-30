@@ -5,7 +5,7 @@ namespace Nezyr\Models\Messages;
 use Nezyr\Models\PlayerManager;
 use pocketmine\console\ConsoleCommandSender;
 
-class ErrorModels{
+class ErrorModel{
     public function noPerms(PlayerManager|ConsoleCommandSender $player){
         $player->sendMessage("§eErreur > §cVous n'avez pas la permission de faire ceci");
     }
